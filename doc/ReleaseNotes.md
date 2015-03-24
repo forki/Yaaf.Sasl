@@ -1,4 +1,8 @@
-﻿### 1.0.1
+﻿### 1.0.2
+
+ * Add SingleUserSource.
+
+### 1.0.1
 
  * Fix nuget dependencies.
 

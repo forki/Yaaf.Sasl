@@ -89,6 +89,22 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.fs">
+      <Link>SharedAssemblyInfo.fs</Link>
+    </Compile>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="SaslInterface.fs" />
+    <Compile Include="PLAIN.fs" />
+    <Compile Include="EXTERNAL.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')">
       <ItemGroup>
@@ -154,20 +170,4 @@
       </ItemGroup>
     </When>
   </Choose>
-  <ItemGroup>
-    <Compile Include="..\..\SharedAssemblyInfo.fs">
-      <Link>SharedAssemblyInfo.fs</Link>
-    </Compile>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="SaslInterface.fs" />
-    <Compile Include="PLAIN.fs" />
-    <Compile Include="EXTERNAL.fs" />
-    <None Include="paket.references" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
 </Project>

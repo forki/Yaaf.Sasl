@@ -14,7 +14,18 @@ type IUserSource =
     abstract member Authenticate : Authcid * Passwd -> bool
     abstract member DeriveAuthzid : Authcid -> Authzid option
     abstract member Authorize : Authcid * Authzid -> bool
-    
+
+module DefaultUserSources =
+    let SingleUserSource isAdmin username password = 
+        { new IUserSource with
+              member x.Authenticate(user, pass) = user = username && pass = password
+              
+              member x.Authorize(user, entity) = 
+                  if isAdmin then true
+                  else user = entity
+              
+              member x.DeriveAuthzid(user) = Some user }
+
 type PlainContextInfo = {
     Authorization : Authzid
     Authentication : Authcid

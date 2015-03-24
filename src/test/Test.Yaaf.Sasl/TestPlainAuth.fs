@@ -41,63 +41,51 @@ type MechanismTest() =
 type TestPlainAuth() = 
     inherit MechanismTest()
     
-    static let getUserSource isAdmin username password = 
-        { new Plain.IUserSource with
-              member x.Authenticate(user, pass) = user = username && pass = password
-              
-              member x.Authorize(user, entity) = 
-                  if isAdmin then true
-                  else user = entity
-              
-              member x.DeriveAuthzid(user) = Some user }
-    
-    static member GetUserSource isAdmin username password = getUserSource isAdmin username password
-    
     [<Test>]
     member this.``Check if plain works``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "testuser", "testpass")
         this.TestSuccessMechs server client
     
     [<Test>]
     member this.``Check if plain fails on invalid password``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "testuser", "testpdass")
         this.TestFailMechs server client
     
     [<Test>]
     member this.``Check if plain fails on no password``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "testuser", "")
         this.TestFailMechs server client
     
     [<Test>]
     member this.``Check if plain fails with invalid user``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "test#user", "")
         this.TestFailMechs server client
     
     [<Test>]
     member this.``Check if plain fails with no user``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "", "")
         this.TestFailMechs server client
     
     [<Test>]
     member this.``Check if plain fails with no user but password``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("", "", "asdas")
         this.TestFailMechs server client
     
     [<Test>]
     member this.``Check if plain fails with invalid authzid``() = 
-        let userSource = getUserSource false "testuser" "testpass"
+        let userSource = Plain.DefaultUserSources.SingleUserSource false "testuser" "testpass"
         let server = new Plain.PlainServer(userSource)
         let client = new Plain.PlainClient("test", "testuser", "testpass")
         this.TestFailMechs server client

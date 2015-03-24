@@ -3,13 +3,9 @@ source https://nuget.org/api/v2
 // Build
 nuget NUnit.Runners
 nuget Yaaf.AdvancedBuilding
-nuget FSharp.Formatting == 2.6.3
 
 // Projects
 nuget FSharp.Core
 nuget FsUnit
 nuget NUnit == 2.6.3
 nuget Yaaf.FSharp.Helper
-nuget Mono.Security
-nuget Novell.Directory.Ldap
-

@@ -64,13 +64,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{74E37E7B-B46
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{9A47C8E6-9866-4184-B68F-112E3D3AC1D6}"
 	ProjectSection(SolutionItems) = preProject
-		..\nuget\Yaaf.Sasl.Ldap.nuspec = ..\nuget\Yaaf.Sasl.Ldap.nuspec
 		..\nuget\Yaaf.Sasl.nuspec = ..\nuget\Yaaf.Sasl.nuspec
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Yaaf.Sasl", "source\Yaaf.Sasl\Yaaf.Sasl.fsproj", "{ACB4D3E9-0627-48C7-9790-10AA6926FB6F}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Yaaf.Sasl.Ldap", "source\Yaaf.Sasl.Ldap\Yaaf.Sasl.Ldap.fsproj", "{F63881EB-2396-463F-8756-CBBA3F2AF9FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CBC42D87-CFD8-467D-923B-A5DC7D25E02A}"
 EndProject
@@ -98,16 +95,6 @@ Global
 		{ACB4D3E9-0627-48C7-9790-10AA6926FB6F}.Release|Net45.Build.0 = Release|Net45
 		{ACB4D3E9-0627-48C7-9790-10AA6926FB6F}.Release|Profile111.ActiveCfg = Release|Profile111
 		{ACB4D3E9-0627-48C7-9790-10AA6926FB6F}.Release|Profile111.Build.0 = Release|Profile111
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Debug|Net40.ActiveCfg = Debug|Net40
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Debug|Net40.Build.0 = Debug|Net40
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Debug|Net45.ActiveCfg = Debug|Net45
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Debug|Net45.Build.0 = Debug|Net45
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Debug|Profile111.ActiveCfg = Debug|Profile111
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Release|Net40.ActiveCfg = Release|Net40
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Release|Net40.Build.0 = Release|Net40
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Release|Net45.ActiveCfg = Release|Net45
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Release|Net45.Build.0 = Release|Net45
-		{F63881EB-2396-463F-8756-CBBA3F2AF9FA}.Release|Profile111.ActiveCfg = Release|Profile111
 		{6101B3FA-6650-4F0A-9B67-75C4A0CC323E}.Debug|Net40.ActiveCfg = Debug|Net40
 		{6101B3FA-6650-4F0A-9B67-75C4A0CC323E}.Debug|Net40.Build.0 = Debug|Net40
 		{6101B3FA-6650-4F0A-9B67-75C4A0CC323E}.Debug|Net45.ActiveCfg = Debug|Net45
