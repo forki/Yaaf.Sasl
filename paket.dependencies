@@ -9,6 +9,3 @@ nuget FSharp.Core
 nuget FsUnit
 nuget NUnit == 2.6.3
 nuget Yaaf.FSharp.Helper
-nuget Mono.Security
-nuget Novell.Directory.Ldap
-
