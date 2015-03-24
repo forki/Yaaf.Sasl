@@ -24,4 +24,3 @@ http://semver.org/
 
 - `Yaaf.Sasl`: The Core abstraction and implementation of SASL.
 
-- `Yaaf.Sasl.Ldap`: A LDAP backend for SASL PLAIN authentication.

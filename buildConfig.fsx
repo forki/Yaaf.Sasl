@@ -31,11 +31,6 @@ if isMono then
     monoArguments <- "--runtime=v4.0 --debug"
 
 let buildConfig =
- // properties ldap
- let projectName_ldap = "Yaaf.Sasl.Ldap"
- let projectSummary_ldap = "Yaaf.Sasl.Ldap is a server LDAP backend for Yaaf.Sasl."
- let projectDescription_ldap = "Yaaf.Sasl.Ldap is a server LDAP backend for Yaaf.Sasl."
- let version_nuget_ldap = "1.0.1"
  // Read release notes document
  let release = ReleaseNotesHelper.parseReleaseNotes (File.ReadLines "doc/ReleaseNotes.md")
  { BuildConfiguration.Defaults with
@@ -55,21 +50,7 @@ let buildConfig =
               ReleaseNotes = toLines release.Notes
               Dependencies =
                 [ "FSharp.Core" ]
-                |> List.map (fun name -> name, (GetPackageVersion "packages" name)) })
-        "Yaaf.Sasl.Ldap.nuspec", (fun config p ->
-          { p with
-              Project = projectName_ldap
-              Summary = projectSummary_ldap
-              Description = projectDescription_ldap
-              Version = version_nuget_ldap
-              ReleaseNotes = toLines release.Notes
-              Dependencies = 
-                [ "FSharp.Core"
-                  "Mono.Security"
-                  "Novell.Directory.Ldap"
-                  "Yaaf.FSharp.Helper" ]
-                  |> List.map (fun name -> name, (GetPackageVersion "packages" name))
-                  |> List.append [ config.ProjectName, config.Version ] }) ]
+                |> List.map (fun name -> name, (GetPackageVersion "packages" name)) }) ]
     UseNuget = false
     SetAssemblyFileVersions = (fun config ->
       let info =
@@ -79,20 +60,7 @@ let buildConfig =
           Attribute.Version config.Version
           Attribute.FileVersion config.Version
           Attribute.InformationalVersion config.Version]
-      CreateFSharpAssemblyInfo "./src/SharedAssemblyInfo.fs" info
-      let info =
-        [ Attribute.Company projectName_ldap
-          Attribute.Product projectName_ldap
-          Attribute.Copyright config.CopyrightNotice
-          Attribute.Version version_nuget_ldap
-          Attribute.FileVersion version_nuget_ldap
-          Attribute.InformationalVersion version_nuget_ldap]
-      CreateFSharpAssemblyInfo "./src/SharedAssemblyInfo.Ldap.fs" info)
-    GeneratedFileList =
-      [ "Yaaf.Sasl.dll"
-        "Yaaf.Sasl.xml"
-        "Yaaf.Sasl.Ldap.dll"
-        "Yaaf.Sasl.Ldap.xml" ]
+      CreateFSharpAssemblyInfo "./src/SharedAssemblyInfo.fs" info)
     EnableProjectFileCreation = false
     BuildTargets =
      [ { BuildParams.WithSolution with
